@@ -15,7 +15,7 @@ defmodule Transformation.MixProject do
   def application do
     [
       extra_applications: [:logger],
-      mod: {Transformation.Application, []}
+      mod: {RogerApi.Application, []}
     ]
   end
 
@@ -26,6 +26,7 @@ defmodule Transformation.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
       { :ex_doc, "~> 0.18.1" },
       { :earmark, "~> 1.2.4" },
+
     ]
   end
 end

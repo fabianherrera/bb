@@ -1,4 +1,4 @@
-defmodule Transformations do
+defmodule RogerApi.Transformations do
   @moduledoc """
   Documentation for Transformations.
   """

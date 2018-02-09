@@ -1,4 +1,4 @@
-defmodule Transformation.JobsTest do
+defmodule RegerApi.JobsTest do
   use ExUnit.Case
 
   test "verify" do

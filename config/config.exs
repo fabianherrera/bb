@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :transformation, key: :value
+#     config :RogerApi, key: :value
 #
 # and access this configuration in your application as:
 #
-#     Application.get_env(:transformation, :key)
+#     Application.get_env(:RogerApi, :key)
 #
 # You can also configure a 3rd-party app:
 #

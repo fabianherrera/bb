@@ -1,4 +1,13 @@
 %{
+  "amqp": {:hex, :amqp, "0.3.0", "45c26acbc63507e4bf7fe9b2e7e32733dcf478a1695439baedc4690722b652d1", [:mix], [{:amqp_client, "~> 3.6.8", [hex: :amqp_client, repo: "hexpm", optional: false]}, {:rabbit_common, "~> 3.6.8", [hex: :rabbit_common, repo: "hexpm", optional: false]}], "hexpm"},
+  "amqp_client": {:hex, :amqp_client, "3.6.15", "a171f78870adc9f6b7294a2974c30ea0817f0bbcee63acb0c469650452134608", [:make, :rebar3], [{:rabbit_common, "3.6.15", [hex: :rabbit_common, repo: "hexpm", optional: false]}], "hexpm"},
   "earmark": {:hex, :earmark, "1.2.4", "99b637c62a4d65a20a9fb674b8cffb8baa771c04605a80c911c4418c69b75439", [:mix], [], "hexpm"},
   "ex_doc": {:hex, :ex_doc, "0.18.2", "993e0a95e9fbb790ac54ea58e700b45b299bd48bc44b4ae0404f28161f37a83e", [:mix], [{:earmark, "~> 1.1", [hex: :earmark, repo: "hexpm", optional: false]}], "hexpm"},
+  "gproc": {:hex, :gproc, "0.6.1", "4579663e5677970758a05d8f65d13c3e9814ec707ad51d8dcef7294eda1a730c", [:rebar3], [], "hexpm"},
+  "jsx": {:hex, :jsx, "2.9.0", "d2f6e5f069c00266cad52fb15d87c428579ea4d7d73a33669e12679e203329dd", [:mix, :rebar3], [], "hexpm"},
+  "poison": {:hex, :poison, "3.1.0", "d9eb636610e096f86f25d9a46f35a9facac35609a7591b3be3326e99a0484665", [:mix], [], "hexpm"},
+  "rabbit_common": {:hex, :rabbit_common, "3.6.15", "ae0b822c206e4a4d6a176a47fed79c69ac7ba1d031305e081088cbc424e3aacf", [:make, :rebar3], [{:recon, "2.3.2", [hex: :recon, repo: "hexpm", optional: false]}], "hexpm"},
+  "recon": {:hex, :recon, "2.3.2", "4444c879be323b1b133eec5241cb84bd3821ea194c740d75617e106be4744318", [:rebar3], [], "hexpm"},
+  "roger": {:hex, :roger, "1.4.2", "03c4869f8cac0b648928a5e8eeb7bacbaf18cded6c5b83204a1889aab4ffef58", [:mix], [{:amqp, "~> 0.3", [hex: :amqp, repo: "hexpm", optional: false]}, {:gproc, "~> 0.6.1", [hex: :gproc, repo: "hexpm", optional: false]}, {:jsx, "~> 2.8", [hex: :jsx, repo: "hexpm", optional: false]}, {:poison, "~> 2.1 or ~> 3.0", [hex: :poison, repo: "hexpm", optional: false]}, {:singleton, "~> 1.0", [hex: :singleton, repo: "hexpm", optional: false]}], "hexpm"},
+  "singleton": {:hex, :singleton, "1.2.0", "b65dcd745de10ab71d5cf149a8ddde496f33f2c401f4e0b4398dbab79a91be51", [:mix], [], "hexpm"},
 }

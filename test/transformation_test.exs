@@ -1,6 +1,6 @@
 defmodule Transformations do
   use ExUnit.Case
-  # doctest transformation
+  # doctest RogerApi
 
 
   test "Data Structures" do
