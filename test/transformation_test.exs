@@ -1,8 +1,9 @@
-defmodule TransformationTest do
+defmodule Transformations do
   use ExUnit.Case
-  doctest Transformation
+  # doctest transformation
 
-  test "greets the world" do
-    assert Transformation.hello() == :world
+
+  test "Data Structures" do
+    assert transformation.transformate([1]) == [2]
   end
 end
