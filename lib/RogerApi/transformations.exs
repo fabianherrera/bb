@@ -48,8 +48,6 @@ defmodule RogerApi.Transformations do
 
   end
 
-  # def transformate([head | tail]), do: [transformate_node_tree(head) | transformate(tail)]
-
   defp transformate_root_tree([]), do: []
   defp transformate_root_tree([head | tail]), do: [transformate_partition_tree(head) | transformate_root_tree(tail)]
 
@@ -59,6 +57,9 @@ defmodule RogerApi.Transformations do
                 |> Keyword.values()
                 |> List.flatten()
 end
+
+  def running_jobs([]), do: []
+  def running_jobs([jobs]), do:  jobs |> Keyword.values() |> Enum.flat_map(&Map.values/1) |> List.flatten()
 
 end
 
