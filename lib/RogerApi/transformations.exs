@@ -38,28 +38,25 @@ defmodule RogerApi.Transformations do
 #  defp transformate_status_tree([x]), do: [transformate_partition_tree(x)]
 #  defp transformate_status_tree([head1 | tail1]), do: [transformate_partition_tree(head) | transformate_status_tree(tail)]
 
-# Activity 2: Incomplete / in Process
+# Activity 2: / Finished in RoegerApi.Jobs.running_jobs
 
-  def transformate([]), do: []
-  def transformate(x)  do
-                        Keyword.values(x)
-                        |> Enum.filter(fn(x) -> x != %{} end)
-                        |> [transformate_root_tree()]
-
-  end
-
-  defp transformate_root_tree([]), do: []
-  defp transformate_root_tree([head | tail]), do: [transformate_partition_tree(head) | transformate_root_tree(tail)]
-
-  defp transformate_partition_tree([]), do: []
-  defp transformate_partition_tree(x) do
-                Map.to_list(x)
-                |> Keyword.values()
-                |> List.flatten()
-end
-
-  def running_jobs([]), do: []
-  def running_jobs([jobs]), do:  jobs |> Keyword.values() |> Enum.flat_map(&Map.values/1) |> List.flatten()
+#  def transformate([]), do: []
+#  def transformate(x)  do
+#                        Keyword.values(x)
+#                        |> Enum.filter(fn(x) -> x != %{} end)
+#                        |> [transformate_root_tree()]
+#
+#  end
+#
+#  defp transformate_root_tree([]), do: []
+#  defp transformate_root_tree([head | tail]), do: [transformate_partition_tree(head) | transformate_root_tree(tail)]
+#
+#  defp transformate_partition_tree([]), do: []
+#  defp transformate_partition_tree(x) do
+#                Map.to_list(x)
+#                |> Keyword.values()
+#                |> List.flatten()
+#end
 
 end
 

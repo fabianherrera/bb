@@ -7,7 +7,14 @@ defmodule Transformation.MixProject do
       version: "0.1.0",
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      aliases: aliases()
+    ]
+  end
+
+  defp aliases do
+    [
+      test: "test --no-start"
     ]
   end
 
@@ -26,7 +33,7 @@ defmodule Transformation.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
       { :ex_doc, "~> 0.18.1" },
       { :earmark, "~> 1.2.4" },
-
+      { :roger, "~> 1.3.0" },
     ]
   end
 end
