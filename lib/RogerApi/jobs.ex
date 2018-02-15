@@ -22,15 +22,15 @@ defmodule RogerApi.Jobs do
       "country" => "Venezuela",
       "email" => "janedoe@gmail.com",
       "name" => "Jane Doe",
-      "number_of_pets" => 967
+      "number_of_pets" => 966
     },
     execution_key: nil,
-    id: "c2mkvrgfonkgf1pdgkdl87okb3hi103r",
+    id: "16ovjr39jvijf4kgrlqe2ib2aadojhid",
     module: RogerDemo.Job.CreateUpdateUser,
     queue_key: nil,
-    queued_at: 1517697586454,
+    queued_at: 1517697586453,
     retry_count: 0,
-    started_at: 1517697683000
+    started_at: 1517697682999
   }]
   """
 

@@ -32,14 +32,33 @@ defmodule RogerApi.Queues do
   def partitions(partitions) do
     partitions
     |> Keyword.values()
-    |> Enum.flat_map(&(Enum.flat_map(&1, consolidate)))
+    |> Enum.flat_map(&Map.values/1)
+    |> Enum.flat_map(&consolidate/1)
   end
 
-  # Incomplete
-  defp consolidate{k, v} do
-  #  capture_partition_key(v) ->
-    
+  defp consolidate(partition) do
+    partition
+    |> Enum.flat_map(&get_queues/1)
   end
+
+  defp get_queues({partition_key, queues}) do
+    queues
+    |> Enum.map(
+         fn {queue_key, queue_params} ->
+           %{
+             "count" => queue_params,
+             "partition_name" => partition_key,
+             "paused" => "running",
+             "qualified_queue_name" => "roger_test_partition_1-default",
+             "queue_name" => queue_key,
+             "basura" => queue_params
+           }
+
+         end
+       )
+
+  end
+
 
 
 end
