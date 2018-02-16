@@ -1,7 +1,5 @@
 defmodule RogerApi.Jobs do
-  @moduledoc """
-  Documentation for Jobs.
-  """
+  @moduledoc false
 
   @doc """
   Given a nested data structure, where each element contents nested items:
@@ -34,7 +32,7 @@ defmodule RogerApi.Jobs do
   }]
   """
 
-  def running_jobs([]), do: []
-  def running_jobs(jobs), do:  jobs |> Keyword.values() |> Enum.flat_map(&Map.values/1) |> List.flatten()
+  def nodes_to_jobs([]), do: []
+  def nodes_to_jobs(jobs), do:  jobs |> Keyword.values() |> Enum.flat_map(&Map.values/1) |> List.flatten()
 
 end

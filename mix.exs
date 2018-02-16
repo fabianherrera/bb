@@ -8,7 +8,8 @@ defmodule Transformation.MixProject do
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      aliases: aliases(),
+      elixirc_path: paths()
     ]
   end
 
@@ -17,6 +18,11 @@ defmodule Transformation.MixProject do
       test: "test --no-start"
     ]
   end
+
+  defp paths do
+    ["lib","test/support"]
+  end
+
 
   # Run "mix help compile.app" to learn about applications.
   def application do

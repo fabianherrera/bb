@@ -1,7 +1,5 @@
 defmodule RogerApi.Queues do
-  @moduledoc """
-  Documentation for Queues.
-  """
+  @moduledoc false
 
   @doc """
   Given a nested data structure, where each element contents nested items:
@@ -23,13 +21,9 @@ defmodule RogerApi.Queues do
     "qualified_queue_name" => "roger_test_partition_2-default",
     "queue_name" => :default
   }]
-
-
   """
 
-
-  def partitions([]), do: []
-  def partitions(partitions) do
+  def nodes_to_queues(partitions) do
     partitions
     |> Keyword.values()
     |> Enum.flat_map(&Map.values/1)
@@ -52,15 +46,12 @@ defmodule RogerApi.Queues do
              "qualified_queue_name" => "#{partition_key}-#{queue_key}",
              "queue_name" => queue_key
            }
-
          end
        )
-
   end
 
   defp paused?(true), do: "paused"
   defp paused?(false), do: "running"
-
 
 end
 
