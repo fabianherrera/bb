@@ -46,12 +46,11 @@ defmodule RogerApi.Queues do
     |> Enum.map(
          fn {queue_key, queue_params} ->
            %{
-             "count" => queue_params,
+             "count" => queue_params.message_count,
              "partition_name" => partition_key,
-             "paused" => "running",
-             "qualified_queue_name" => "roger_test_partition_1-default",
-             "queue_name" => queue_key,
-             "basura" => queue_params
+             "paused" => paused?(queue_params.paused),
+             "qualified_queue_name" => "#{partition_key}-#{queue_key}",
+             "queue_name" => queue_key
            }
 
          end
@@ -59,6 +58,8 @@ defmodule RogerApi.Queues do
 
   end
 
+  defp paused?(true), do: "paused"
+  defp paused?(false), do: "running"
 
 
 end
