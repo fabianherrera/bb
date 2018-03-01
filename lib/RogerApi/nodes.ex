@@ -23,22 +23,18 @@ defmodule RogerApi.Nodes do
     |> Enum.flat_map(&get_node/1)
   end
 
-  defp get_node(node) do
-      node_name = Elem(node, 0)
-      status = Elem(node, 1)
-      |> Enum.map(&get_status(node_name, &1))
+  defp get_node({node_name, status}) do
+      status
+      |> Enum.flat_map(&get_status(node_name, &1))
   end
 
-  defp get_status(node_name, stats)  do
-      status = Elem(node, 0)
-      partitions = Elem(node, 1)
+  defp get_status(node_name, {status, partitions})  do
+      partitions
       |> Enum.map(&get_partition(node_name, status, &1))
   end
 
-
-  defp get_partition(node_name, status, partitions) do
-    partition_name = Elem(node, 0)
-          %{
+  defp get_partition(node_name, status, {partition_name, _}) do
+              %{
              "partition_name" => partition_name,
              "node_name" => node_name,
              "status" => status
