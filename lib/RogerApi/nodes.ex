@@ -20,17 +20,17 @@ defmodule RogerApi.Nodes do
 
   def get_node_status(nodes) do
     nodes
-    |> Enum.flat_map(&get_node/1)
+    |> Stream.flat_map(&get_node/1)
   end
 
   defp get_node({node_name, status}) do
       status
-      |> Enum.flat_map(&get_status(node_name, &1))
+      |> Stream.flat_map(&get_status(node_name, &1))
   end
 
   defp get_status(node_name, {status, partitions})  do
       partitions
-      |> Enum.map(&get_partition(node_name, status, &1))
+      |> Stream.map(&get_partition(node_name, status, &1))
   end
 
   defp get_partition(node_name, status, {partition_name, _}) do

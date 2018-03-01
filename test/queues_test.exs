@@ -5,10 +5,10 @@ defmodule RegerApi.QueuesTest do
   alias Support.RogerApi, as: Roger
 
 
-  test "verify Nodes/partitions to queues transformation" do
+  test "Verify Nodes/partitions to queues transformation" do
     input = Roger.partitions()
     output = Roger.partitions_to_queues()
-    assert MapSet.new(RogerApi.Queues.partitions_to_queues(input)) == MapSet.new(output)
+    assert MapSet.new(RogerApi.Queues.nodes_to_queues(input)) == MapSet.new(output)
 
   end
 
