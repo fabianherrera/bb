@@ -2,7 +2,7 @@ defmodule Support.RogerApi do
   @moduledoc false
 
   def running_jobs do
-      [
+    [
       "watcher@127.0.0.1": %{
         "roger_demo_partition" => [
           %Roger.Job{

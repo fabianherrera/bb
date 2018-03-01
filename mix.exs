@@ -9,7 +9,7 @@ defmodule Transformation.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       aliases: aliases(),
-      elixirc_path: paths()
+      elixirc_paths: paths()
     ]
   end
 
