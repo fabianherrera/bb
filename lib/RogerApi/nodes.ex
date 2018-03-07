@@ -40,7 +40,6 @@ defmodule RogerApi.Nodes do
              "status" => status
           }
    end
-
 end
 
 

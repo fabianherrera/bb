@@ -371,4 +371,18 @@ def partitions_to_nodes_status do
   ]
 
 end
+
+
+def enum_to_filter do
+  [
+    %{"tax_id" => 5612345, "first_name" => "Samuel", "last_name" => "Gomez"},
+    %{"tax_id" => 15887445, "first_name" => "Fabian", "last_name" => "Herrera"},
+    %{"tax_id" => 13222112, "first_name" => "Antonio", "last_name" => "Abella"}
+  ]
+
+end
+
+def enum_to_filter_results do
+ [ %{"tax_id" => 5612345, "first_name" => "Samuel", "last_name" => "Gomez"}]
+end
 end
