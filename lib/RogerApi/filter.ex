@@ -8,31 +8,29 @@ defmodule RogerApi.Filter do
           filter :: String.t()
         ) :: []
 
-  @spec checker(
-          Map.t(),
-          List.t(),
-          String.t()
-        ) :: []
-
   @doc """
-  Takes an enumerable, a field and a filter and returns it filtered
+  Takes an enumerable, list of fields or one string and a filter and returns it filtered
   """
   def call(enumerable, _, ""), do: enumerable
 
   def call(enumerable, fields, filter) do
-    fields
-    |> Stream.flat_map(&checker(enumerable, &1, filter))
-    |> Enum.uniq
+    filter = String.upcase(filter)
+    Enum.filter(enumerable, &check(&1, fields, filter))
   end
 
-  defp checker(enumerable, field, filter) do
-                  filter = String.upcase(filter)
-                  Enum.filter(enumerable, fn e ->
-                  e
-                  |> Map.get(field)
-                  |> to_string()
-                  |> String.upcase()
-                  |> String.contains?(filter)
-                  end)
+  defp check(map, field, filter), do: check(map, [field], filter)
+
+  defp check(map, fields, filter) when is_list(fields) do
+    fields
+    |> Enum.any?(fn field ->
+      map
+      |> Map.get(field)
+      |> to_string()
+      |> String.upcase()
+      |> String.contains?(filter)
+    end)
   end
+
+
+
 end

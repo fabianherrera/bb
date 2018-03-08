@@ -3,10 +3,20 @@ defmodule RegerApi.FilterTest do
 doctest RogerApi.Filter
   alias Support.RogerApi, as: Roger
 
-  test "Verify Nodes/partitions to jobs transformation" do
+  test "Filter the enum given one field in a list" do
     input = Roger.enum_to_filter()
     output = Roger.enum_to_filter_results()
-    assert MapSet.new(RogerApi.Filter.call(input, ["first_name", "last_name", "tax_id"], "56")) == MapSet.new(output)
-    assert MapSet.new(RogerApi.Filter.call(input, ["first_name", "last_name", "tax_id"], "sam")) == MapSet.new(output)
+    assert output == RogerApi.Filter.call(input, ["last_name"], "go")
+  end
+
+  test "Given a 2 fields and a filter that is missing returns a empty list " do
+    input = Roger.enum_to_filter()
+    assert Filter.call(input, ["first_name","last_name"], "12") == []
+  end
+
+  test "With a single element in field return the expected results" do
+    input = Roger.enum_to_filter()
+    output = Roger.enum_to_filter_results()
+    assert output == RogerApi.Filter.call(input, "last_name", "go")
   end
 end
